@@ -1,0 +1,20 @@
+package com.techlabs.test;
+
+import com.techlabs.model.ISayable;
+
+public class SayableTest {
+
+	public static void main(String[] args) {
+		
+		ISayable sayable= new ISayable() {
+
+			@Override
+			public void say() {
+				System.out.println("I AM SAYABLE");
+				
+			}	
+		};
+		sayable.say();
+	}
+
+}

@@ -1,0 +1,47 @@
+package com.techlabs.model;
+
+public class Country {
+	
+	private String country_code;
+	private String Japan;
+	private int region;
+	
+	public Country(String country_code, String japan, int region) {
+		super();
+		this.country_code = country_code;
+		Japan = japan;
+		this.region = region;
+	}
+
+	public String getCountry_code() {
+		return country_code;
+	}
+
+	public void setCountry_code(String country_code) {
+		this.country_code = country_code;
+	}
+
+	public String getJapan() {
+		return Japan;
+	}
+
+	public void setJapan(String japan) {
+		Japan = japan;
+	}
+
+	public int getRegion() {
+		return region;
+	}
+
+	public void setRegion(int region) {
+		this.region = region;
+	}
+
+	@Override
+	public String toString() {
+		return "Country [country_code=" + country_code + ", Japan=" + Japan + ", region=" + region + "]";
+	}
+	
+	
+
+}

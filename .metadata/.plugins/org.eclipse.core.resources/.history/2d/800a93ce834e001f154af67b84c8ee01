@@ -1,0 +1,37 @@
+package com.techlabs.model;
+
+public class Region {
+	
+	private int key;
+	private String region;
+	
+	public Region(int key, String region) {
+		super();
+		this.key = key;
+		this.region = region;
+	}
+
+	public int getKey() {
+		return key;
+	}
+
+	public void setKey(int key) {
+		this.key = key;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	@Override
+	public String toString() {
+		return "Region [key=" + key + ", region=" + region + "]";
+	}
+	
+	
+	
+}

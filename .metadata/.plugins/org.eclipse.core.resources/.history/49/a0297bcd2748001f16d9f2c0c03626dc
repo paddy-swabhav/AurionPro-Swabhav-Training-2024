@@ -1,0 +1,12 @@
+package com.techlabs.list.test;
+
+import java.util.Scanner;
+
+public class BankAppTest {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = Scanner(System.in);
+	}
+
+}

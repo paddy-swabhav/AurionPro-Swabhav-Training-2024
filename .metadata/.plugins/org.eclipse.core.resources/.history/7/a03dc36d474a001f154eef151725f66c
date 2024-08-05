@@ -1,0 +1,13 @@
+package com.techlabs.test;
+
+import com.techlabs.model.Task;
+
+public class TaskTest {
+
+	public static void main(String[] args) {
+		Thread thread = new Thread(new Task());
+		
+		thread.start();
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.techlabs.ocp.violation.model;
+
+public class FixedDeposit {
+
+	private int accountNumber;
+	private String Name;
+	private double principal;
+	private int duration;
+	private FestivalType festival;
+	
+	
+}

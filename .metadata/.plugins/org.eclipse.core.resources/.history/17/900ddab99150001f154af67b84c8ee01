@@ -1,0 +1,24 @@
+package com.techlabs.observer.model;
+
+public class SmsNotifier implements INotifier{
+
+	@Override
+	public void notify(Account account, String operation, double balance, double amount, int account_number) {
+		System.out.println("\n\n********** SMS ************");
+		System.out.println(operation.toUpperCase()+" OPERATION HAS BEEN PERFORMED ON YOUR ACCOUNT WITH ACCOUNT NUMBER '"+account_number+"' ");
+		System.out.println("BALANCE BEFORE "+operation.toUpperCase()+": ");
+		if(operation.equalsIgnoreCase("credit"))
+		{
+			System.out.println((balance-amount));
+			System.out.println(amount+" Rupees, has been successfully credited to your account");
+			System.out.println("Your current balance is: "+balance);
+		}
+		if(operation.equalsIgnoreCase("debit"))
+		{
+			System.out.println((balance+amount));
+			System.out.println(amount+" Rupees, has been successfully Debited from your account");
+			System.out.println("Your current balance is: "+balance);
+		}
+	}
+
+}

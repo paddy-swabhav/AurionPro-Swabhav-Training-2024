@@ -1,0 +1,11 @@
+package com.techlabs.solution.model;
+
+public class Snippet {
+	public void log(String err)
+		{
+			System.out.println("LOGGED TO DATABASE "+err);
+		}
+	}
+	
+}
+

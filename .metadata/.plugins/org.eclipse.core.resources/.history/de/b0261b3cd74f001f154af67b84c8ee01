@@ -1,0 +1,12 @@
+package com.techlabs.Decorator.model;
+
+public abstract class  CarServiceDecorator implements IcarService{
+	
+	IcarService carObj;
+
+	public CarServiceDecorator(IcarService carObj) {
+		super();
+		this.carObj = carObj;
+	}
+
+}

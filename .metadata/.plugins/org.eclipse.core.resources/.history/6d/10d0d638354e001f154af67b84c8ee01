@@ -1,0 +1,12 @@
+package com.techlabs.ocp.violation.model;
+
+public class GetInterestRates {
+	
+	FixedDeposit fixedDeposit;
+	
+	
+	private double getInterestRates(FixedDeposit fixedDeposit)
+	{
+		return fixedDeposit.getFestival().getInterestRates();
+	}
+}

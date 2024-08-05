@@ -1,0 +1,5 @@
+package com.techlabs.creational.builder.model;
+
+public class PhoneBuilder {
+
+}

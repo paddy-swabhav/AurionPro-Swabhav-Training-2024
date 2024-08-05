@@ -1,0 +1,48 @@
+package com.techlabs.list.test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.techlabs.list.model.BankApp;
+
+public class BankAppTest {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner =new Scanner(System.in);
+		List<BankApp> accounts_list= new ArrayList<BankApp>();
+		
+		createAccounts(scanner,accounts_list);
+	}
+	
+	private static void createAccounts(Scanner scanner,List<BankApp> accounts_list)
+	{
+		int flag =0;
+		while(flag!=1)
+		{
+		System.out.println("Select your option: \n\t1. Create Accounts. \n\t2. Exit");
+		int choice=scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			System.out.println("ENTER NAME: ");
+			String name=scanner.next();
+			System.out.println("ENTER BALANCE");
+			double balance = scanner.nextDouble();
+			long account_number = account_number_generator();
+			
+			accounts_list.add(new BankApp(account_number,name,balance));
+		}
+		}
+	}
+	
+	
+	public static long account_number_generator()
+	{
+		long account_number= (long)(Math.random()* 9_000_000_000L + 1_000_000_000L);
+		return account_number;
+		
+	}
+
+}

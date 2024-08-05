@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OperationsTest" project="28_UnitTest_app" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.techlabs.model.OperationsTest" time="0.041" displayname="OperationsTest" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]">
+    <testcase name="testAddition" classname="com.techlabs.model.OperationsTest" time="0.026" displayname="testAddition()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testAddition()]"/>
+    <testcase name="testMultiply" classname="com.techlabs.model.OperationsTest" time="0.004" displayname="testMultiply()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testMultiply()]"/>
+    <testcase name="testSubtraction" classname="com.techlabs.model.OperationsTest" time="0.011" displayname="testSubtraction()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testSubtraction()]"/>
+  </testsuite>
+</testrun>

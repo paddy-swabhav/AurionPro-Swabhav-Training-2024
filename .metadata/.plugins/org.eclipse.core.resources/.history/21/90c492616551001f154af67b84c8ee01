@@ -1,0 +1,9 @@
+package com.techlabs.model;
+
+public class AreaCalculator {
+
+	double calculateAreaOfCircle(int radius)
+	{
+		return 3.14*radius*radius;
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OperationsTest" project="28_UnitTest_app" tests="3" started="3" failures="1" errors="0" ignored="0">
+  <testsuite name="com.techlabs.model.OperationsTest" time="0.031" displayname="OperationsTest" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]">
+    <testcase name="testAddition" classname="com.techlabs.model.OperationsTest" time="0.014" displayname="testAddition()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testAddition()]"/>
+    <testcase name="testMultiply" classname="com.techlabs.model.OperationsTest" time="0.003" displayname="testMultiply()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testMultiply()]"/>
+    <testcase name="testSubtraction" classname="com.techlabs.model.OperationsTest" time="0.014" displayname="testSubtraction()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.OperationsTest]/[method:testSubtraction()]">
+      <failure>
+        <expected>11</expected>
+        <actual>10</actual>org.opentest4j.AssertionFailedError: THIS FUNCTION DOES SUBSTRACT ==&gt; expected: &lt;11&gt; but was: &lt;10&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)&#13;
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)&#13;
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)&#13;
+	at com.techlabs.model.OperationsTest.testSubtraction(OperationsTest.java:25)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+&#13;
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

@@ -1,0 +1,27 @@
+package com.techlabs.list.test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.techlabs.list.model.Car;
+
+public class CarTest {
+
+	public static void main(String[] args) {
+
+		List<Car> cars= new ArrayList<Car>();
+		Scanner scanner= new Scanner(System.in);
+		
+		System.out.println("ENTER NUMBER OF CARS YOU WANT: ");
+		int no_of_cars= scanner.nextInt();
+		
+		
+	}
+
+	private static void readCars(Scanner scanner,List<Car> cars,int no_of_cars)
+	{
+		System.out.println("ENTER CAR DETAILS");
+		for(int i=0;i<)
+	}
+}

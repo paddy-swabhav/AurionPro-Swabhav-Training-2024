@@ -1,0 +1,23 @@
+package com.techlabs.creational.factory.test;
+
+import com.techlabs.creational.factory.model.AccountCreater;
+import com.techlabs.creational.factory.model.AccountType;
+import com.techlabs.creational.factory.model.IAccount;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		
+		IAccount account;
+		
+		account = AccountCreater.createAcoount(AccountType.Current);
+		account.credit(200);
+		account.debit(1000);
+		
+		account = AccountCreater.createAcoount(AccountType.Savings);
+		account.credit(200);
+		account.debit(1000);
+
+	}
+
+}

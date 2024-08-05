@@ -1,0 +1,24 @@
+package com.techlabs.Adapter.Model;
+
+public class Biscuit implements IItems{
+
+	private String name;
+	private double price;
+	
+	public Biscuit(String string, double d) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void getItemName() {
+		System.out.println("NAME OF BISCUIT: "+name);
+	}
+
+	@Override
+	public void getItemPrice() {
+		System.out.println("PRICE OF BISCUIT: "+price);
+		
+	}
+	
+
+}

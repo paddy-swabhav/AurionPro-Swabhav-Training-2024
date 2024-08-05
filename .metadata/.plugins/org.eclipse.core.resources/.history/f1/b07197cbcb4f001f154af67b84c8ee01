@@ -1,0 +1,21 @@
+package com.techlabs.Adapter.Model;
+
+public class HatAdapter implements IItems{
+
+	Hat hat = new Hat();
+	
+
+	
+	@Override
+	public void getItemName() {
+		System.out.println("NAME OF HAT: "+hat.getShortName()+" "+hat.getLongName());
+	}
+
+	@Override
+	public void getItemPrice() {
+		System.out.println("PRICE OF HAT: "+(hat.getBasePrice()+hat.getTax()));
+		
+	}
+	
+	
+}

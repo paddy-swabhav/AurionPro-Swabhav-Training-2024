@@ -1,0 +1,12 @@
+package com.techlabs.ocp.solution.test;
+
+public class AreaOfRectangleCalculatorTest {
+
+	public static void main(String[] args) {
+		
+		private int length;
+		private int breadth;
+
+	}
+
+}

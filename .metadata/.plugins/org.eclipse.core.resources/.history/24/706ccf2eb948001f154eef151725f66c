@@ -1,0 +1,14 @@
+package com.techlabs.list.model;
+
+import java.util.Comparator;
+
+public class StudentNameComparator implements Comparator<Student>{
+
+	@Override
+	public int compare(Student studnet1, Student student2) {
+		
+		
+		return 0;
+	}
+
+}

@@ -1,0 +1,13 @@
+// FUNCTION ACCEPTS ONE ARG OF ANY TYPE AND RETURN DATA OF ANY TYPE
+
+package com.techlabs.test;
+
+public class FunctionTest {
+
+	public static void main(String[] args) {
+		
+		Function
+
+	}
+
+}

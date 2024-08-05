@@ -1,0 +1,15 @@
+package com.techlabs.ocp.solution.model;
+
+import com.techlabs.ocp.violation.model.FixedDeposit;
+import com.techlabs.ocp.violation.model.GetInterestRates;
+
+public class SimpleInterestCalculator {
+
+	FixedDeposit fixedDeposit;
+	GetInterestRates interestRates;
+	
+	public double calculateSimpleInterest()
+	{
+		return (fixedDeposit.getPrincipal()*fixedDeposit.getDuration()*interestRates.getInterestRates(fixedDeposit));
+	}
+}

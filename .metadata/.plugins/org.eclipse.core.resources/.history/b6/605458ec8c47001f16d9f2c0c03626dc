@@ -1,0 +1,10 @@
+package com.techlabs.exceptions;
+
+public class EmailExecptions {
+
+	
+	public String getMessage()
+	{
+		return "Email not valid";
+	}
+}

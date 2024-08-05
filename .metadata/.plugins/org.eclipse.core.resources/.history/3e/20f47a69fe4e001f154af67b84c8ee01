@@ -1,0 +1,16 @@
+package com.techlabs.creational.factory.test;
+
+import com.techlabs.creational.factory.model.Icar;
+import com.techlabs.creational.factory.model.Maruti;
+
+public class CarTest {
+
+	public static void main(String[] args) {
+
+		Icar car1= new Maruti();
+		Icar car2= new Tata();
+		Icar car3= new Mahindra();
+
+	}
+
+}

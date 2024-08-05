@@ -1,0 +1,5 @@
+package com.techlabs.composite.model;
+
+public class SimpleTask implements Task{
+
+}

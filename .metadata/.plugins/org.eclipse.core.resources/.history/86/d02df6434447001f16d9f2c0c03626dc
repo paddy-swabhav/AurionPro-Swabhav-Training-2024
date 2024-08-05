@@ -1,0 +1,11 @@
+package com.techlabs.exceptions;
+
+public class NegativeNumberException extends RuntimeException{
+	
+	
+	public String getMessage()
+	{
+		return "ENTERED AMOUNT CANNOT BE NEGATIVE OR '0', PLEASE ENTER RIGHT AMOUNT";
+	}
+	
+}

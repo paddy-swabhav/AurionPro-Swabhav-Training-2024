@@ -1,0 +1,45 @@
+package com.techlabs.Adapter.Model;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ShoppingCart {
+	List<IItems> itemList;
+
+	public ShoppingCart(List<IItems> itemList) {
+		super();
+		this.itemList = itemList;
+	}
+
+	public List<IItems> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(List<IItems> itemList) {
+		this.itemList = itemList;
+	}
+	
+	public void addItemsToCart(List<IItems> itemList)
+	{
+		for(IItems item: itemList)
+		itemList.add(item);
+	}
+	
+	public List<IItems> getCartItems()
+	{
+		return itemList;
+	}
+	
+	public double getCartPrice()
+	{
+		itemList.stream()
+				.map((items)->items.getItemPrice())
+				.reduce(0,(item1,item2)->item1+item2));
+				
+				
+	}
+	
+	
+	
+	
+}

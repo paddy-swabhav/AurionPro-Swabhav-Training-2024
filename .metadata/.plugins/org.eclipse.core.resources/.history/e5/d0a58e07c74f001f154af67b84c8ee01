@@ -1,0 +1,10 @@
+package com.techlabs.facade.model;
+
+public class SoundSystem {
+	
+	public void on() 
+	{
+		System.out.println("ON SOUND SYSTEM");
+	}
+
+}

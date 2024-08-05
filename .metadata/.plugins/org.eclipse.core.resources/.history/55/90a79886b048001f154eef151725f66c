@@ -1,0 +1,18 @@
+package com.techlabs.map.test;
+
+import java.util.HashMap;
+
+public class HashMapTest {
+
+	public static void main(String[] args) {
+
+		HashMap<Integer,String> map= new HashsMap<Integer,String>();
+		
+		map.put(1, "Paddy");
+		map.put(2, "Sova");
+		map.put(3, "Raze");
+		
+		System.out.println(map);
+	}
+
+}

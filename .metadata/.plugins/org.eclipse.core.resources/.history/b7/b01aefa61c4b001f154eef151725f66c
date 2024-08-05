@@ -1,0 +1,11 @@
+package com.techlabs.test;
+
+import java.util.Arrays;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		List<Integer> numbers= Arrays.asList(20,15,25,45,35);
+	}
+}

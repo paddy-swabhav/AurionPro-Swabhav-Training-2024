@@ -1,0 +1,7 @@
+package com.techlabs.iterator.model;
+
+public interface IAggregate<T> {
+
+	Iterator<T> createIterator();
+
+}

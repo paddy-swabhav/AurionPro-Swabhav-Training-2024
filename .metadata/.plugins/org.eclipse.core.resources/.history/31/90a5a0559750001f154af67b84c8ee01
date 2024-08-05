@@ -1,0 +1,7 @@
+package com.techlabs.state.model;
+
+public interface IPacketState {
+	
+	public void display();
+
+}

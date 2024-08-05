@@ -1,0 +1,6 @@
+package com.techlabs.solution.model;
+
+public interface Ilogger {
+
+	public void log(String err);
+}

@@ -1,0 +1,23 @@
+package com.techlabs.test;
+
+import java.util.Scanner;
+
+import com.techlabs.model.IFactorial;
+
+public class IFactorialTest {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("ENTER NUMBER FOR FACTORIAL: ");
+		int number=scanner.nextInt();
+		
+		IFactorial factorial=(int number)->{
+			for(int i=1;i<=number;i++)
+			fact=fact*i;
+			return fact;
+		};
+		
+		System.out.println("THE FACTORIAL OF "+number+" IS: "+factorial.factorial(5));
+	}
+
+}

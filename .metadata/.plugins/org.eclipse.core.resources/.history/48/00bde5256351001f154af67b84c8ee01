@@ -1,0 +1,46 @@
+package com.techlabs.model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+class OperationsTest {
+	
+	Operations operations;
+	
+	@BeforeAll
+	void init()
+	{
+	operations = new Operations();
+	}
+	
+	@Test
+	void testAddition() {
+
+//		fail("Not yet implemented");
+		
+//		int actual = operations.addition(5, 5);
+//		int expected=10;
+	
+		assertEquals(10,operations.addition(5, 5),"THIS FUNCTION DOES ADD");
+	}
+	
+	@Test
+	void testSubtraction() {
+
+
+	
+		assertEquals(10,operations.subtraction(15, 5),"THIS FUNCTION DOES SUBSTRACT");
+	}
+	
+	@Test
+	void testMultiply() {
+
+
+		assertEquals(10,operations.multiply(5, 2),"THIS FUNCTION DOES MULTIPLY");
+	
+	
+	}
+
+}

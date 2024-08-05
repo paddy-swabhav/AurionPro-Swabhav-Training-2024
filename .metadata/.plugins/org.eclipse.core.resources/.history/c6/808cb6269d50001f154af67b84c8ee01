@@ -1,0 +1,5 @@
+package com.techlabs.strategy.model;
+
+public class OperationStrategy {
+
+}

@@ -1,0 +1,10 @@
+package com.techlabs.exceptions;
+
+public class UserExecptions extends RuntimeException{
+
+	
+	public String getMessage()
+	{
+		return "Email not valid";
+	}
+}

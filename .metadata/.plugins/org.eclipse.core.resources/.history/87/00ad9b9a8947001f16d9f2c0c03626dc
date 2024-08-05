@@ -1,0 +1,28 @@
+package com.techlabs.test;
+
+import java.util.Scanner;
+
+import com.techlabs.model.User;
+
+public class UserTest {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		emailReader(scanner);
+		
+		System.out.println("ENTER PASSWORD");
+		String password=scanner.next();
+		
+		User user= new User(username,password);
+		
+
+	}
+	
+	private static void emailReader(Scanner scanner)
+	{
+		System.out.println("ENTER YOUR USERNAME :");
+		String username=scanner.next();
+	}
+
+}

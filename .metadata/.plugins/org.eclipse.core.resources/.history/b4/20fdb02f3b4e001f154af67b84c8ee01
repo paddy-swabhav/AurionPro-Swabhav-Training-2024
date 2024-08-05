@@ -1,0 +1,15 @@
+package com.techlabs.violation.test;
+
+import com.techlabs.violation.model.IWorker;
+import com.techlabs.violation.model.Labour;
+
+public class WorkerTest {
+
+	public static void main(String[] args) {
+		IWorker worker1= new Labour();
+		IWorker worker2= new Robot();
+		
+
+	}
+
+}

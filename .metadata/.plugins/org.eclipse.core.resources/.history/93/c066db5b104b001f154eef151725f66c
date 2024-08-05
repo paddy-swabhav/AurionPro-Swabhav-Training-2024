@@ -1,0 +1,12 @@
+// PREDICATE (ACCEPTS ONE ARG) (RETURNS BOLLEAN)
+
+package com.techlabs.test;
+
+public class PredicateTest {
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+package com.techlabs.facade.model;
+
+public class MovieFacade {
+	
+	DvdPlayer dvdPlayer = new DvdPlayer();
+	
+
+}

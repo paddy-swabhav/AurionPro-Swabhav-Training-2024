@@ -1,0 +1,52 @@
+package com.techlabs.assignment.test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import com.techlabs.assignment.model.Book;
+import com.techlabs.assignment.model.BookComparators;
+
+public class BookTest {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		List<Book> books= new ArrayList<Book>();
+		
+		books.add(new Book("Harry","hogwarts",1000,2004));
+		books.add(new Book("Potter","hagrit",1678,2005));
+		books.add(new Book("Rich Dad Poor Dad","IdontKNow",800,2012));
+		books.add(new Book("chamber of askaban","potter",1000,1980));
+		
+		System.out.println("LIST OF BOOKS");
+		displayBooks(books);
+		
+		System.out.println("\n\nLIST OF BOOKS BY ALHABETICAL ORDER OF NAMES:");
+		Collections.sort(books, new BookComparators.BookNameComparator());
+		displayBooks(books);
+		
+		System.out.println("\n\nLIST OF BOOKS BY PRICE");
+		Collections.sort(books, new BookComparators.BookPriceComparator());
+		displayBooks(books);
+		
+		System.out.println("\n\nLIST OF BOOKS BY ASCENDING ORDER OF PUBLICATION YEAR:");
+		Collections.sort(books, new BookComparators.BookPublicationYearComparator());
+		displayBooks(books);
+		
+		System.out.println("\n\nLIST OF BOOKS BY DESCENDING ORDER OF PUBLICATION YEAR:");
+		Collections.sort(books, new BookComparators.BookPublicationYearComparator().reversed());
+		displayBooks(books);
+
+	}
+	
+	private static void displayBooks(List<Book> books)
+	{
+		for(Book book : books)
+		{
+			System.out.println(book);
+		}
+	}
+}

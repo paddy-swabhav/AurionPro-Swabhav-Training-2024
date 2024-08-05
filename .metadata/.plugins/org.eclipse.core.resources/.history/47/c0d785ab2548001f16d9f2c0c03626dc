@@ -1,0 +1,7 @@
+package com.techlabs.list.model;
+
+public class BankApp {
+	private long account_number;
+	private String name;
+	private double balance;
+}

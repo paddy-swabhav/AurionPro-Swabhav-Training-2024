@@ -1,0 +1,17 @@
+package com.techlabs.list.model;
+
+import java.util.Comparator;
+
+public class EmployeeComparator {
+	
+	public static class EmployeeIdComparator implements Comparator<Employee>{
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+	}
+
+}

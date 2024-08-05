@@ -1,0 +1,16 @@
+package com.techlabs.assignment.model;
+
+import java.util.Comparator;
+
+public class BookComparators {
+	
+		public static class BookNameComparator implements Comparator<Book>{
+
+			@Override
+			public int compare(Book book1, Book book2) {
+				
+				return book1.getBook_name().compareToIgnoreCase(book2.getBook_name());
+			}
+			
+		}
+}

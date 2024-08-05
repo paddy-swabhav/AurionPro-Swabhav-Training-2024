@@ -1,0 +1,14 @@
+package com.techlabs.violation.test;
+
+import com.techlabs.violation.model.TaxCalculator;
+
+public class TaxCalculatorTest {
+
+	public static void main(String[] args) {
+		
+		TaxCalculator t1= new TaxCalculator();
+		
+
+	}
+
+}

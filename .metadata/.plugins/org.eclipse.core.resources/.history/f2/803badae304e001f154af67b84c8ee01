@@ -1,0 +1,5 @@
+package com.techlabs.ocp.violation.model;
+
+public class FixedDeposit {
+
+}

@@ -1,0 +1,19 @@
+package com.techlabs.sets.test;
+
+import java.util.LinkedHashSet;
+
+public class HashSetsDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TreeSet<String> set= new TreeSet<String>();
+		
+		set.add("paddy");
+		set.add("sova");
+		set.add("raze");
+		set.add("paddy");
+		
+		System.out.println(set);
+	}
+
+}

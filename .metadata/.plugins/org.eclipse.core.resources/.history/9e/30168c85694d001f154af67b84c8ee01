@@ -1,0 +1,24 @@
+package com.techlabs.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentsStreamTest {
+
+	public static void main(String[] args) {
+		List<String> students= new ArrayList<String>();
+		students.add("Jayesh");
+		students.add("Nimesh");
+		students.add("Mark");
+		students.add("Mahesh");
+		students.add("Ramesh");
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

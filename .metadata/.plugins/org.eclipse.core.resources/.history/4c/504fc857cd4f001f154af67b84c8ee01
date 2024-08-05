@@ -1,0 +1,31 @@
+package com.techlabs.Adapter.Model;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ShoppingCart {
+	List<IItems> itemList;
+
+	public ShoppingCart(List<IItems> itemList) {
+		super();
+		this.itemList = itemList;
+	}
+
+	public List<IItems> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(List<IItems> itemList) {
+		this.itemList = itemList;
+	}
+	
+	public void addItemsToCart(List<IItems> itemList)
+	{
+		itemList= Arrays.asList(new Biscuit("PARLE G",10.0),
+				 new Chocolate("Cadbury",50.0),
+				 new HatAdapter(new Hat("KAAN","TOPI",100.0,50.0)));
+
+	}
+	
+	
+}

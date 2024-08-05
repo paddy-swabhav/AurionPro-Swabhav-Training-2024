@@ -1,0 +1,24 @@
+package com.techlabs.test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.techlabs.model.Account;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+
+		
+		List<Account> accounts=Arrays.asList(new Account(1,"Paddy",1000),new Account(2,"Vinayak",9876),new Account(3,"Devansh",23445),new Account(20,"Sova",98765));
+		
+		
+		//ACCOUNT WITH MINIMUM BAL
+		System.out.println("ACCOUNT WITH MINIMUM BALANCE");
+		System.out.println(accounts.stream()
+				.min((account1,account2)->(int)account1.getBalance()-(int)account2.getBalance()).get());
+				
+	}
+
+}

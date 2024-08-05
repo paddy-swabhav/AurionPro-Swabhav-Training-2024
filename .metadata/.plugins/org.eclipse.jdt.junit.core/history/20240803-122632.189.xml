@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AreaCalculatorTest" project="28_UnitTest_app" tests="3" started="3" failures="2" errors="0" ignored="0">
+  <testsuite name="com.techlabs.model.AreaCalculatorTest" time="0.043" displayname="AreaCalculatorTest" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.AreaCalculatorTest]">
+    <testcase name="testCalculateAreaOfTriangle" classname="com.techlabs.model.AreaCalculatorTest" time="0.026" displayname="testCalculateAreaOfTriangle()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.AreaCalculatorTest]/[method:testCalculateAreaOfTriangle()]">
+      <failure>org.opentest4j.AssertionFailedError: Unimplemented&#13;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)&#13;
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)&#13;
+	at com.techlabs.model.AreaCalculatorTest.testCalculateAreaOfTriangle(AreaCalculatorTest.java:34)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testCalculateAreaOfRectangle" classname="com.techlabs.model.AreaCalculatorTest" time="0.009" displayname="testCalculateAreaOfRectangle()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.AreaCalculatorTest]/[method:testCalculateAreaOfRectangle()]">
+      <failure>
+        <expected>78.5</expected>
+        <actual>25.0</actual>org.opentest4j.AssertionFailedError: expected: &lt;78.5&gt; but was: &lt;25.0&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)&#13;
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)&#13;
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:70)&#13;
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:65)&#13;
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:889)&#13;
+	at com.techlabs.model.AreaCalculatorTest.testCalculateAreaOfRectangle(AreaCalculatorTest.java:29)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+	at java.util.ArrayList.forEach(ArrayList.java:1257)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testCalculateAreaOfCircle" classname="com.techlabs.model.AreaCalculatorTest" time="0.006" displayname="testCalculateAreaOfCircle()" uniqueid="[engine:junit-jupiter]/[class:com.techlabs.model.AreaCalculatorTest]/[method:testCalculateAreaOfCircle()]"/>
+  </testsuite>
+</testrun>

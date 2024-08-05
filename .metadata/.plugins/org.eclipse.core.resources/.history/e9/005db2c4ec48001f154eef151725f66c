@@ -1,0 +1,26 @@
+package com.techlabs.assignment.test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.techlabs.assignment.model.Book;
+
+public class BookTest {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		List<Book> books= new ArrayList<Book>();
+		
+		books.add(new Book("Harry","hogwarts",1000,2004));
+		books.add(new Book("Potter","hagrit",1678,2005));
+		books.add(new Book("Rich Dad Poor Dad","IdontKNow",800,2012));
+		books.add(new Book("chamber of askaban","potter",1000,1980));
+		
+		
+
+	}
+
+}

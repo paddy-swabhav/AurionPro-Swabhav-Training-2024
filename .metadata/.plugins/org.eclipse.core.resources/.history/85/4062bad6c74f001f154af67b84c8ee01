@@ -1,0 +1,20 @@
+package com.techlabs.facade.model;
+
+public class MovieFacade {
+	
+	
+	public void watchMovie()
+	{
+	DvdPlayer dvdPlayer = new DvdPlayer();
+	dvdPlayer.on();
+	dvdPlayer.setMovie("Taar Zameen Par");
+	
+	SoundSystem soundSystem = new SoundSystem();
+	soundSystem.on();
+	soundSystem.setVolume(50);
+	
+	Projector projector = new Projector();
+	projector.on();
+	}
+
+}

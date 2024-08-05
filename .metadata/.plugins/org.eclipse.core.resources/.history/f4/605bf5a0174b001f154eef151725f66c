@@ -1,0 +1,14 @@
+package com.techlabs.model;
+
+public class Reference {
+
+	public Reference()
+	{
+		
+	}
+	
+	void print()
+	{
+		System.out.println("INSIDE REFERENCE");
+	}
+}

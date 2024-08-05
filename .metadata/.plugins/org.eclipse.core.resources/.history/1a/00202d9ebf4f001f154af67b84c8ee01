@@ -1,0 +1,11 @@
+package com.techlabs.creational.builder.model;
+
+public class PhoneShop {
+
+	public static void main(String[] args) {
+		
+		Phone phone = new PhoneBuilder().setOs("Android").setRam(8).getPhone();
+		
+		System.out.println(phone);
+	}
+}

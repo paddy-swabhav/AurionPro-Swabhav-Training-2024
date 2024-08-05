@@ -1,0 +1,5 @@
+package com.techlabs.observer.model;
+
+public class Account {
+
+}

@@ -1,0 +1,6 @@
+package com.techlabs.facade.model;
+
+public class ItalianHotel implements IHotel{
+	
+
+}

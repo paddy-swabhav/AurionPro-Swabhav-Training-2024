@@ -1,0 +1,16 @@
+package com.techlabs.state.model;
+
+public class Packet {
+	IPacketState state;
+	
+	public void nextState()
+	{
+		state.next(this);
+	}
+	
+	public void previousState()
+	{
+		state.previous(this);;
+	}
+
+}
