@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="com.techlabs.model.Box"/>
-<fullyQualifiedTypeName name="com.techlabs.model.AccountTypeEnum"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Parameter"/>
-<fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
 <fullyQualifiedTypeName name="com.techlabs.model.Base"/>
 <fullyQualifiedTypeName name="com.techlabs.model.CreditCardPayment"/>
 <fullyQualifiedTypeName name="com.techlabs.model.PayPalPayments"/>
@@ -25,13 +17,11 @@
 <fullyQualifiedTypeName name="java.util.ListIterator"/>
 <fullyQualifiedTypeName name="com.techlabs.exceptions.NegativeAmountException"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="com.techlabs.list.model.StudentComparator.RollnoComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.list.model.StudentComparator.StudentPercentageComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.list.model.StudentComparator.StudentNameComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.list.model.EmployeeComparator.EmployeeIdComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.assignment.model.Book"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="com.techlabs.assignment.model.BookComparators.BookNameComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.assignment.model.BookComparators.BookPublicationYearComparator"/>
 <fullyQualifiedTypeName name="com.techlabs.assignment.model.BookComparators.BookAuthorComparator"/>
@@ -42,7 +32,32 @@
 <fullyQualifiedTypeName name="java.util.function.Predicate"/>
 <fullyQualifiedTypeName name="java.util.function.BiPredicate"/>
 <fullyQualifiedTypeName name="com.techlabs.model.Reference"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="com.techlabs.ocp.violation.model.FestivalType"/>
+<fullyQualifiedTypeName name="com.techlabs.violation.model.Robot"/>
+<fullyQualifiedTypeName name="com.techlabs.model.Region"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.singleton.model.Login"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.singleton.model.DatabaseConnection"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.factory.model.CarFactory"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.factory.model.CarName"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.factory.model.AccountCreater"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.factory.model.AccountType"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.AbstractFactory.model.Icar"/>
+<fullyQualifiedTypeName name="com.techlabs.creational.AbstractFactory.model.IAccount"/>
+<fullyQualifiedTypeName name="com.techlabs.facade.model.MovieFacade"/>
+<fullyQualifiedTypeName name="com.techlabs.Adapter.Model.IItems"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.techlabs.observer.model.INotifier"/>
+<fullyQualifiedTypeName name="com.techlabs.state.model.Ordered"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+<fullyQualifiedTypeName name="org.mockito.Mockito"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+<fullyQualifiedTypeName name="com.techlabs.model.MarkType"/>
+<fullyQualifiedTypeName name="com.techlabs.model.Game"/>
 </qualifiedTypeNameHistroy>

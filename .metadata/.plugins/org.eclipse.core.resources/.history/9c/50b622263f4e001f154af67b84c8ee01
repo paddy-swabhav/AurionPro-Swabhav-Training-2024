@@ -1,9 +1,0 @@
-package com.techlabs.solution.model;
-
-public class DBLogger {
-
-	public void log(String err)
-	{
-		System.out.println("LOGGED TO DATABASE "+err);
-	}
-}

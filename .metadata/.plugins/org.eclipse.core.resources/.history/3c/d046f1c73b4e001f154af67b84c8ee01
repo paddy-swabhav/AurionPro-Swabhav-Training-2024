@@ -1,7 +1,0 @@
-package com.techlabs.solution.model;
-
-public interface ILabour {
-
-	public void startWork();
-	public void stopWork();
-}

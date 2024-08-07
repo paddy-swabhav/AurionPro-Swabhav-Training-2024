@@ -2,44 +2,44 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="double" key="selection"/>
+		<item value="PhoneBuilder" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="void"/>
+			<item value="MARUTI"/>
+			<item value="Japan"/>
+			<item value="japan"/>
+			<item value="violation"/>
+			<item value="LABOUR"/>
+			<item value="Labour"/>
+			<item value="\\"/>
+			<item value="\\\\"/>
 			<item value="float"/>
 			<item value="arr"/>
 			<item value="getName"/>
 			<item value="setName"/>
 			<item value="name"/>
 			<item value="Account"/>
-			<item value="get"/>
-			<item value="turn"/>
-			<item value="this."/>
-			<item value="players"/>
-			<item value="PlayerApp"/>
-			<item value="CricketPLayer"/>
-			<item value="Cricket"/>
-			<item value="maxBalanceAccount"/>
-			<item value="accounts"/>
 		</list>
 		<list key="replacehistory">
+			<item value="PhoneBuilder"/>
+			<item value="MAHINDRA"/>
+			<item value="TATA"/>
+			<item value="Country"/>
+			<item value="country"/>
+			<item value="solution"/>
+			<item value="ROBOT"/>
+			<item value="//"/>
+			<item value="\"/>
+			<item value="\\"/>
 			<item value="double"/>
 			<item value="array"/>
 			<item value="getEmail"/>
 			<item value="setEmail"/>
 			<item value="email"/>
-			<item value="BankApp"/>
-			<item value="piggame.getTurns()"/>
-			<item value="pigGame.getTurns"/>
-			<item value="getTurn"/>
-			<item value=" "/>
-			<item value="books"/>
-			<item value="BookApp"/>
-			<item value="PlayerApp"/>
-			<item value="maxAveragePlayer"/>
-			<item value="players"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

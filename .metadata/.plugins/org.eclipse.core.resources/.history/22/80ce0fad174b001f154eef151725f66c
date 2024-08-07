@@ -1,7 +1,0 @@
-package com.techlabs.test;
-
-@FunctionalInterface
-public interface ITest {
-	
-	void display();
-}

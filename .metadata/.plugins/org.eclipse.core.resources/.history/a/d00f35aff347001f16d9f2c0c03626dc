@@ -1,7 +1,0 @@
-package com.techlabs.list.model;
-
-public class Student {
-	private String name;
-	private int roll_no;
-	private float percentage;
-}

@@ -1,9 +1,0 @@
-package com.techlabs.assignment.model;
-
-public class Book {
-	private String book_name,author;
-	private double price;
-	private int publication_year;
-	
-	
-}
