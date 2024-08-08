@@ -58,6 +58,6 @@
 <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
 <fullyQualifiedTypeName name="org.mockito.Mockito"/>
 <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
-<fullyQualifiedTypeName name="com.techlabs.model.MarkType"/>
 <fullyQualifiedTypeName name="com.techlabs.model.Game"/>
+<fullyQualifiedTypeName name="com.techlabs.model.MarkType"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,0 @@
-package com.techlabs.creational.AbstractFactory.model;
-
-public class MarutiFactory {
-
-}
