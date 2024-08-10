@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="PhoneBuilder" key="selection"/>
+		<item value="!result.isBeforeFirst()" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="result.next()==false"/>
 			<item value="void"/>
 			<item value="MARUTI"/>
 			<item value="Japan"/>
@@ -22,9 +23,9 @@
 			<item value="getName"/>
 			<item value="setName"/>
 			<item value="name"/>
-			<item value="Account"/>
 		</list>
 		<list key="replacehistory">
+			<item value="!result.isBeforeFirst()"/>
 			<item value="PhoneBuilder"/>
 			<item value="MAHINDRA"/>
 			<item value="TATA"/>
@@ -39,7 +40,6 @@
 			<item value="array"/>
 			<item value="getEmail"/>
 			<item value="setEmail"/>
-			<item value="email"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

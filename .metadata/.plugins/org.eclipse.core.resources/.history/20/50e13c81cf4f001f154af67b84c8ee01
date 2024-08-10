@@ -1,9 +1,0 @@
-package com.techlabs.Adapter.Model;
-
-public interface IItems {
-	
-	public void getItemName();
-	public double getItemPrice();
-	
-
-}

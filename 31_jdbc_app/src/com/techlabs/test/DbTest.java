@@ -19,9 +19,10 @@ public class DbTest {
 //		System.out.println("\n\n");
 //		connection.getStudentDetails();
 		
-		connection.deleteStudent();
-		System.out.println("\n\n");
-		connection.getStudentDetails();
+//		connection.deleteStudent();
+//		System.out.println("\n\n");
+//		connection.getStudentDetails();
+		connection.metaData();
 		
 		
 	}

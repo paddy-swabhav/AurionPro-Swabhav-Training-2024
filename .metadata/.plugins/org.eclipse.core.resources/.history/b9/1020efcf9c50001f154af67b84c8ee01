@@ -1,6 +1,0 @@
-package com.techlabs.strategy.model;
-
-public interface IOperation {
-
-	public void operation(int a, int b);
-}

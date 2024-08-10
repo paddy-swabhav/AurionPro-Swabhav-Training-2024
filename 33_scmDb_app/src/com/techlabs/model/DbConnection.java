@@ -14,7 +14,7 @@ public class DbConnection {
 	private Statement statement=null;	
 	private PreparedStatement preparedStatement= null;
 	
-	public void connectToDb()
+	public Connection connectToDb()
 	{
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");   // 1. REGISTER DRIVER
@@ -36,7 +36,7 @@ public class DbConnection {
 		}
 		
 		System.out.println("CONNECTION SUCCESSFUL");
-		
+		return connection;
 	}
 	
 	//Question 1
@@ -308,85 +308,5 @@ public class DbConnection {
 				e.printStackTrace();
 			}				
 		}
-	
-//	public void setStudentDetails()
-//	{
-//		Scanner scanner= new Scanner(System.in);
-//		System.out.println("ENTER ROLL NUMBER: ");
-//		int rollnumber= scanner.nextInt();
-//		System.out.println("ENTER NAME: ");
-//		String name= scanner.next();
-//		System.out.println("ENTER PERCENTAGE: ");
-//		double percentage= scanner.nextDouble();
-//		
-//		
-//		
-//		try {
-////			statement.executeUpdate("INSERT INTO students values("+rollnumber+",'"+name+"',"+percentage+")");
-//			
-//			preparedStatement = connection.prepareStatement("INSERT INTO STUDENTS VALUES(?,?,?)");
-//			preparedStatement.setInt(1, rollnumber);
-//			preparedStatement.setString(2, name);
-//			preparedStatement.setDouble(3, percentage);
-//			
-//			preparedStatement.execute();
-//			
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	public void updateStudentPercentage()
-//	{
-//		System.out.println("\n UPDATE PERCENTAGE");
-//		Scanner scanner= new Scanner(System.in);
-//		System.out.println("ENTER ROLL NUMBER: ");
-//		int rollnumber= scanner.nextInt();
-//		
-//		System.out.println("ENTER NEW PERCENTAGE: ");
-//		double percentage= scanner.nextDouble();
-//		
-//		
-//		try {
-////			statement.executeUpdate("UPDATE students  SET percentage ="+percentage+" WHERE rollnumber="+rollnumber+"");
-//			
-//			preparedStatement = connection.prepareStatement("UPDATE STUDENTS SET percentage=(?) WHERE rollnumber=(?)");
-//			preparedStatement.setDouble(1, percentage);
-//
-//			preparedStatement.setInt(2, rollnumber);
-//			
-//			preparedStatement.execute();
-//	
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	
-//	public void deleteStudent()
-//	{
-//		System.out.println("\n DELETE STUDENT \n");
-//		Scanner scanner= new Scanner(System.in);
-//		System.out.println("ENTER ROLL NUMBER NEEDED TO DELETE: ");
-//		int rollnumber= scanner.nextInt();
-//		
-//		
-//		
-//		try {
-////			statement.executeUpdate("UPDATE students  SET percentage ="+percentage+" WHERE rollnumber="+rollnumber+"");
-//			
-//			preparedStatement = connection.prepareStatement("DELETE FROM STUDENTS WHERE rollnumber=(?)");
-//
-//			preparedStatement.setInt(1, rollnumber);
-//			
-//			preparedStatement.execute();
-//
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+		
 }

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.reflect.Parameter"/>
-<fullyQualifiedTypeName name="com.techlabs.model.Base"/>
-<fullyQualifiedTypeName name="com.techlabs.model.CreditCardPayment"/>
-<fullyQualifiedTypeName name="com.techlabs.model.PayPalPayments"/>
-<fullyQualifiedTypeName name="com.techlabs.model.BankTransferPayment"/>
-<fullyQualifiedTypeName name="com.techlabs.model.Circle"/>
-<fullyQualifiedTypeName name="com.techlabs.model.Rectangle"/>
-<fullyQualifiedTypeName name="com.techlabs.model.Triangle"/>
 <fullyQualifiedTypeName name="com.techlabs.model.Shape"/>
 <fullyQualifiedTypeName name="com.techlabs.exceptions.AgeNotValidException"/>
 <fullyQualifiedTypeName name="com.techlabs.exceptions.NegativeNumberException"/>
@@ -54,10 +46,18 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.techlabs.observer.model.INotifier"/>
 <fullyQualifiedTypeName name="com.techlabs.state.model.Ordered"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
 <fullyQualifiedTypeName name="org.mockito.Mockito"/>
 <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
 <fullyQualifiedTypeName name="com.techlabs.model.Game"/>
 <fullyQualifiedTypeName name="com.techlabs.model.MarkType"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.ResultSetMetaData"/>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="com.techlabs.model.ConnectionDb"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="com.techlabs.entity.Student"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -138,6 +139,31 @@ public class DbConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	public void metaData()
+	{
+		PreparedStatement ps;
+		try {
+			ps = connection.prepareStatement("select * from STUDENTS");
+			ResultSet rs=ps.executeQuery();  
+			ResultSetMetaData rsmd=rs.getMetaData();  
+			
+			System.out.println("Table Name: "+rsmd.getTableName(1)); 
+			System.out.println("Total columns: "+rsmd.getColumnCount()); 
+			for(int i = 1; i<=rsmd.getColumnCount();i++)
+			{
+				System.out.println("\n");
+				System.out.println(i+". Column Name of 1st column: "+rsmd.getColumnName(i));  
+				System.out.println(i+". Column Type Name of 1st column: "+rsmd.getColumnTypeName(i));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+		  
 	}
 	
 }
