@@ -20,5 +20,13 @@
 </c:forEach>
 </table>
 
+<select name="students">
+<option disable="true">STUDENTS LIST</option>
+<c:forEach var="student" items="${students}">
+<option >${student.getName()}</option>
+</c:forEach>
+</select>
+
+
 </body>
 </html>
