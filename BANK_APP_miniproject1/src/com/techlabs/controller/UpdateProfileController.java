@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.techlabs.connections.CustomerDatabaseConnection;
+import com.techlabs.model.Customer;
 
 @WebServlet("/UpdateProfileController")
 public class UpdateProfileController extends HttpServlet {
@@ -37,16 +38,26 @@ public class UpdateProfileController extends HttpServlet {
         String fname = request.getParameter("firstname");
         String lname = request.getParameter("lastname");
         String password = request.getParameter("password");
+        String oldPassword = request.getParameter("oldpassword");
 
         // Validation
         String errorMessage = null;
 
-        if (fname == null || lname == null || password == null || fname.isEmpty() || lname.isEmpty() || password.isEmpty()) {
+        if (fname == null || lname == null || password == null || oldPassword == null ||
+            fname.isEmpty() || lname.isEmpty() || password.isEmpty() || oldPassword.isEmpty()) {
             errorMessage = "All fields are required.";
         } else if (!Pattern.matches("[a-zA-Z]+", fname) || !Pattern.matches("[a-zA-Z]+", lname)) {
             errorMessage = "First name and last name cannot contain numbers.";
         } else if (!Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", password)) {
             errorMessage = "Password must contain at least one digit, one lowercase letter, one uppercase letter, and be at least 8 characters long.";
+        } else {
+            // Check old password
+            databaseConnection = CustomerDatabaseConnection.getConnectionToDb();
+            Customer customer = databaseConnection.getCustomer(customerId);
+
+            if (!customer.getPassword().equals(oldPassword)) {
+                errorMessage = "Old password is incorrect.";
+            }
         }
 
         if (errorMessage != null) {
@@ -57,8 +68,6 @@ public class UpdateProfileController extends HttpServlet {
         }
 
         // If validation is successful, proceed with updating the customer
-        databaseConnection = CustomerDatabaseConnection.getConnectionToDb();
-        databaseConnection.connectToDatabase();
         databaseConnection.updateCustomer(customerId, fname, lname, password);
 
         request.setAttribute("message", "Profile updated successfully");

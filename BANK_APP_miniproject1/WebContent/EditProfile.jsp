@@ -146,9 +146,18 @@
             <input id="lastname" type="text" name="lastname" value="${customer.lastName}" required />
         </div>
 
+		<div class="form-group">
+		    <label for="oldpassword">
+		        <i class="fas fa-lock"></i>
+		        Old Password:
+		    </label>
+		    <input id="oldpassword" type="password" name="oldpassword" required />
+		</div>
+		
+		
         <div class="form-group">
             <label for="password">
-                <i class="fas fa-lock"></i>
+                <i class="fas fa-key"></i>
                 Password:
             </label>
             <input id="password" type="password" name="password" value="${customer.password}" required />
