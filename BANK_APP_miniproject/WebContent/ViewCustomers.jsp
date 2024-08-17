@@ -5,17 +5,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>View Customers</title>
 </head>
 <body>
 <h1>VIEW CUSTOMERS</h1>
 
-<table>
+<form action="SearchCustomerForAdmin" method="get">
+    <label>Search:</label>
+    <input type="text" name="searchInput" required />
+    <button type="submit">Search</button>
+</form>
+
+<table border="1">
 <tr>
 <th>CUSTOMER ID</th>
 <th>FIRST NAME</th>
 <th>LAST NAME</th>
 <th>EMAIL</th>
+<th>ACCOUNT NUMBER</th>
+<th>BALANCE</th>
 </tr>
 <c:forEach var="customer" items="${customers}">
 <tr>
@@ -23,9 +31,16 @@
 <td>${customer.getFirstName()}</td>
 <td>${customer.getLastName()}</td>
 <td>${customer.getEmail()}</td>
+<td>${customer.getAccountnumber()}</td>
+<td>${customer.getBalance()}</td>
 </tr>
 </c:forEach>
 
 </table>
+<br>
+<br>
+<form action="GoBackToAdminHomeController" method="post">
+<button type="submit" name="back">GO BACK TO HOME</button>
+</form>
 </body>
 </html>

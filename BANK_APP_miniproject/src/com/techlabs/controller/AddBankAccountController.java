@@ -31,7 +31,12 @@ public class AddBankAccountController extends HttpServlet {
 		database.connectToDatabase();
 		int customerid = Integer.parseInt(request.getParameter("customerid"));
 		Customer customer = database.getCustomer(customerid);
-		request.setAttribute("customer", customer);
+
+		if (customer == null) {
+            request.setAttribute("message", "Wrong ID entered.");
+        } else {
+            request.setAttribute("customer", customer);
+        }
 		
 		dispatcher = request.getRequestDispatcher("/AddBankAccount.jsp");
 		dispatcher.forward(request, response);

@@ -14,13 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import com.techlabs.connections.TransactionDatabaseConnection;
 import com.techlabs.model.Passbook;
-import com.techlabs.model.Transaction;
 
 @WebServlet("/PassbookController")
 public class PassbookController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
-    TransactionDatabaseConnection databaseconnection2;
+    private TransactionDatabaseConnection databaseconnection2;
 
     public PassbookController() {
         super();
@@ -49,7 +48,7 @@ public class PassbookController extends HttpServlet {
 
         List<Passbook> passbook = null;
 
-        if (transactionType.equals("All")) {
+        if ("All".equals(transactionType)) {
             if (fromDate != null && toDate != null) {
                 passbook = databaseconnection2.getPassbookDetailsByDate(accountNumber, fromDate, toDate);
             } else {
@@ -64,7 +63,15 @@ public class PassbookController extends HttpServlet {
         }
 
         request.setAttribute("passbooks", passbook);
-
+        request.setAttribute("paramacntnumber", accountNumber);
+        
+        // GETTING THE BALANCE
+        
+        double balance = databaseconnection2.getBalance(accountNumber);
+        request.setAttribute("balance", balance);
+        
+        
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Passbook.jsp");
         dispatcher.forward(request, response);
     }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.techlabs.connections.CustomerDatabaseConnection;
 import com.techlabs.connections.TransactionDatabaseConnection;
-import com.techlabs.model.Customer;
+import com.techlabs.model.Customer1;
 import com.techlabs.model.Transaction;
 
 
@@ -53,7 +53,7 @@ public class AdminHomeController extends HttpServlet {
 		{
 			databaseconnection1 = CustomerDatabaseConnection.getConnectionToDb();
 			databaseconnection1.connectToDatabase();
-			List<Customer> customers = databaseconnection1.getCustomerDetails();
+			List<Customer1> customers = databaseconnection1.getCustomerDetailsForAdmin();
 			request.setAttribute("customers", customers);
 			dispatcher = request.getRequestDispatcher("/ViewCustomers.jsp");
 			dispatcher.forward(request, response);
@@ -66,6 +66,19 @@ public class AdminHomeController extends HttpServlet {
 			List<Transaction> transactions = databaseconnection2.getTransactionDetails();
 			request.setAttribute("transactions", transactions);
 			dispatcher = request.getRequestDispatcher("/ViewTransactions.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+		
+		if(operation.equals("logout"))
+		{
+            session=request.getSession();  
+            session.invalidate();  
+            
+            System.out.print("You are successfully logged out!");  
+
+			
+			dispatcher = request.getRequestDispatcher("/LoginPage.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}

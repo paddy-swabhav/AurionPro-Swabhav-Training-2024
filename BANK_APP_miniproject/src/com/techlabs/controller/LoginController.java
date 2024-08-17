@@ -21,91 +21,78 @@ import com.techlabs.model.Customer;
  */
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     
-	private  CustomerDatabaseConnection databaseconnection = null;
-	private  AdminDatabaseConnection admindatabaseconnection = null;
-	private RequestDispatcher dispatcher = null;
-	
+    private CustomerDatabaseConnection databaseconnection = null;
+    private AdminDatabaseConnection admindatabaseconnection = null;
+    private RequestDispatcher dispatcher = null;
+    
     public LoginController() {
         super();
-       
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        databaseconnection = CustomerDatabaseConnection.getConnectionToDb();
+        databaseconnection.connectToDatabase();
+        admindatabaseconnection = AdminDatabaseConnection.getConnectionToDb();
+        admindatabaseconnection.connectToDatabase();
+        
+        // Session
+        HttpSession session = request.getSession(); 
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String usertype = request.getParameter("type");
+        
+        if(usertype.equalsIgnoreCase("customer")) {
+            List<Customer> customers = databaseconnection.getCustomerDetails();
+            boolean validUser = false;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		databaseconnection = CustomerDatabaseConnection.getConnectionToDb();
-		databaseconnection.connectToDatabase();
-		admindatabaseconnection = AdminDatabaseConnection.getConnectionToDb();
-		admindatabaseconnection.connectToDatabase();
-		
-		//Session
-		HttpSession session=request.getSession(); 
-	
-		//Session
-		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String usertype = request.getParameter("type");
-//		response.getWriter().print(username+password+usertype);
-		
-		if(usertype.equalsIgnoreCase("customer"))
-		{
-			
-			List<Customer> customers = databaseconnection.getCustomerDetails();
-			
-			for(Customer customer:customers)
-			{
-				if(customer.getEmail().equals(username) && customer.getPassword().equals(password))
-				{
-					request.setAttribute("username", customer.getFirstName());
-					dispatcher = request.getRequestDispatcher("/CustomerHome.jsp");
-//					dispatcher.forward(request, response);
-					session.setAttribute("name", customer.getFirstName());
-					session.setAttribute("customerId", customer.getCustomerid());
-					break;
-				}
-				else
-				{
-					dispatcher = request.getRequestDispatcher("/Else.jsp");	
-				}
-			}
-			dispatcher.forward(request, response);
-			return;
-		}
-		
-		if(usertype.equalsIgnoreCase("admin"))
-		{
-			List<Admin> admins = admindatabaseconnection.getAdminDetails();
-			
-			for(Admin admin:admins)
-			{
-				if(admin.getEmail().equals(username) && admin.getPassword().equals(password))
-				{
-					request.setAttribute("username", admin.getName());
-					dispatcher = request.getRequestDispatcher("/AdminHome.jsp");
-//					dispatcher.forward(request, response);
-					session.setAttribute("name", admin.getName());
-					break;
-				}
-				else
-				{
-					dispatcher = request.getRequestDispatcher("/Else.jsp");	
-				}
-			}
-			dispatcher.forward(request, response);
-			return;
-		}
+            for(Customer customer : customers) {
+                if(customer.getEmail().equals(username) && customer.getPassword().equals(password)) {
+                    request.setAttribute("username", customer.getFirstName());
+                    session.setAttribute("name", customer.getFirstName());
+                    session.setAttribute("customerId", customer.getCustomerid());
+                    dispatcher = request.getRequestDispatcher("/CustomerHome.jsp");
+                    validUser = true;
+                    break;
+                }
+            }
+            
+            if (!validUser) {
+                request.setAttribute("errorMessage", "Invalid Username or Password.");
+                dispatcher = request.getRequestDispatcher("/LoginPage.jsp");
+            }
+            
+            dispatcher.forward(request, response);
+            return;
+        }
 
+        if(usertype.equalsIgnoreCase("admin")) {
+            List<Admin> admins = admindatabaseconnection.getAdminDetails();
+            boolean validUser = false;
 
-		
-	}
+            for(Admin admin : admins) {
+                if(admin.getEmail().equals(username) && admin.getPassword().equals(password)) {
+                    request.setAttribute("username", admin.getName());
+                    session.setAttribute("name", admin.getName());
+                    dispatcher = request.getRequestDispatcher("/AdminHome.jsp");
+                    validUser = true;
+                    break;
+                }
+            }
+            
+            if (!validUser) {
+                request.setAttribute("errorMessage", "Invalid Username or Password.");
+                dispatcher = request.getRequestDispatcher("/LoginPage.jsp");
+            }
+            
+            dispatcher.forward(request, response);
+            return;
+        }
+    }
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 }

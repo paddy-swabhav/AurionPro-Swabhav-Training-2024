@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.techlabs.model.Customer;
+import com.techlabs.model.Customer1;
 
 public class CustomerDatabaseConnection {
 
@@ -77,6 +77,73 @@ public class CustomerDatabaseConnection {
 		return customers;
 	}
 	
+	public List<Customer1> getCustomerDetailsForAdmin()
+	{
+		databaseConnection.connectToDatabase();
+		ResultSet result = null;
+		List<Customer1> customers = new ArrayList<Customer1>();
+	
+		try {
+			
+			preparedStatement = connection.prepareStatement("SELECT c.customerid, c.firstname, c.lastname, c.email,c.password, a.accountnumber, a.balance\r\n" + 
+					"FROM customers c\r\n" + 
+					"LEFT JOIN accounts a ON c.customerid = a.customerid");
+			
+			result = preparedStatement.executeQuery();
+		
+			while(result.next())
+			{
+				customers.add((new Customer1(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getLong(6),result.getDouble(7))));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return customers;
+	}
+	
+	public List<Customer1> searchCustomersForAdmin(String searchQuery) {
+	    connectToDatabase();
+	    List<Customer1> customers = new ArrayList<>();
+	    String query = "SELECT c.customerid, c.firstname, c.lastname, c.email, c.password, a.accountnumber, a.balance " +
+	                   "FROM customers c " +
+	                   "LEFT JOIN accounts a ON c.customerid = a.customerid " +
+	                   "WHERE c.firstname LIKE ? " +
+	                   "OR c.lastname LIKE ? " +
+	                   "OR c.email LIKE ? " +
+	                   "OR CAST(c.customerid AS CHAR) LIKE ? " +
+	                   "OR CAST(a.accountnumber AS CHAR) LIKE ? " +
+	                   "OR CAST(a.balance AS CHAR) LIKE ?";
+
+	    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+	        String pattern = searchQuery + "%";
+	        stmt.setString(1, pattern);
+	        stmt.setString(2, pattern);
+	        stmt.setString(3, pattern);
+	        stmt.setString(4, searchQuery);
+	        stmt.setString(5, searchQuery);
+	        stmt.setString(6, searchQuery);
+
+	        ResultSet rs = stmt.executeQuery();
+	        while (rs.next()) {
+	            customers.add(new Customer1(
+	                rs.getInt("customerid"),
+	                rs.getString("firstname"),
+	                rs.getString("lastname"),
+	                rs.getString("email"),
+	                rs.getString("password"),
+	                rs.getLong("accountnumber"),
+	                rs.getDouble("balance")
+	            ));
+	        }
+	    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return customers;
+	}
+
+	
 	public void addCustomer(String fname, String lname, String email, String password)
 	{
 		databaseConnection.connectToDatabase();
@@ -140,7 +207,7 @@ public class CustomerDatabaseConnection {
 	    }
 	}
 
-
+	
 	
 
 }

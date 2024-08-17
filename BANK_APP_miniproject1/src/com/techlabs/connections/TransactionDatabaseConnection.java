@@ -65,7 +65,7 @@ public class TransactionDatabaseConnection {
 			
 			preparedStatement = connection.prepareStatement("SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
 															"FROM transactions t\r\n" + 
-															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid;");
+															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid ORDER BY t.transactiondate DESC;");
 			
 			result = preparedStatement.executeQuery();
 		
@@ -93,7 +93,7 @@ public class TransactionDatabaseConnection {
 					"FROM transactions T\r\n" + 
 					"JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid\r\n" + 
 					"JOIN accounts A ON T.senderaccountnumber = A.accountnumber\r\n" + 
-					"Where T.senderaccountnumber =?;");
+					"Where T.senderaccountnumber =? ORDER BY T.transactionid DESC;");
 			preparedStatement.setLong(1, accountnumber);
 			result = preparedStatement.executeQuery();
 			System.out.println("qury exe");
@@ -238,7 +238,7 @@ public class TransactionDatabaseConnection {
 			preparedStatement = connection.prepareStatement("SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
 															"FROM transactions t\r\n" + 
 															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid\r\n" + 
-															"where tt.transactiontype=?;");
+															"where tt.transactiontype=? ORDER BY t.transactiondate DESC;");
 			preparedStatement.setString(1, type);
 			
 			result = preparedStatement.executeQuery();
@@ -263,11 +263,11 @@ public class TransactionDatabaseConnection {
 
 	    try {
 	        preparedStatement = connection.prepareStatement(
-	            "SELECT t.transactionid, tt.transactiontype, t.senderaccountnumber, " +
-	            "t.receiveraccountnumber, t.amount, t.transactiondate " +
-	            "FROM transactions t " +
-	            "JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid " +
-	            "WHERE t.transactiondate BETWEEN ? AND ?;"
+	            "SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
+	            "FROM transactions t\r\n" + 
+	            "JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid\r\n" + 
+	            "where t.transactiondate BETWEEN ? AND ?\r\n" + 
+	            "ORDER BY t.transactionid;"
 	        );
 
 	        preparedStatement.setDate(1, fromDate);
@@ -304,7 +304,7 @@ public class TransactionDatabaseConnection {
 	                "t.receiveraccountnumber, t.amount, t.transactiondate " +
 	                "FROM transactions t " +
 	                "JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid " +
-	                "WHERE tt.transactiontype = ? AND t.transactiondate BETWEEN ? AND ?;"
+	                "WHERE tt.transactiontype = ? AND t.transactiondate BETWEEN ? AND ? ORDER BY t.transactiondate DESC;"
 	            );
 
 	            preparedStatement.setString(1, type);
@@ -342,7 +342,7 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ?;"
+	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? ORDER BY T.transactionid DESC;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
 	            preparedStatement.setString(2, type);
@@ -376,7 +376,7 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND T.transactiondate BETWEEN ? AND ?;"
+	                "WHERE T.senderaccountnumber = ? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
 	            preparedStatement.setDate(2, fromDate);
@@ -411,7 +411,7 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? AND T.transactiondate BETWEEN ? AND ?;"
+	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
 	            preparedStatement.setString(2, type);
@@ -433,6 +433,31 @@ public class TransactionDatabaseConnection {
 	            e.printStackTrace();
 	        }
 	        return passbook;
+	    }
+	    
+	    
+	    public double getBalance(long accountNumber)
+	    {
+	    	 connectToDatabase();
+		        ResultSet result = null;
+		        double balance = 0;
+		        
+		        try {
+		            preparedStatement = connection.prepareStatement(
+		                "SELECT balance from accounts WHERE accountnumber = ?;"
+		            );
+		            preparedStatement.setLong(1, accountNumber);
+		            
+		            result = preparedStatement.executeQuery();
+		            
+		            while (result.next()) {
+		             
+		            	balance = result.getDouble("balance");
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		        return balance;
 	    }
 	
 }

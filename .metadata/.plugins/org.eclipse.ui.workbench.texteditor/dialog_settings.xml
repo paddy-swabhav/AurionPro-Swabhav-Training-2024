@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="!result.isBeforeFirst()" key="selection"/>
+		<item value="passbook" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="passbook"/>
 			<item value="result.next()==false"/>
 			<item value="void"/>
 			<item value="MARUTI"/>
@@ -22,7 +23,6 @@
 			<item value="arr"/>
 			<item value="getName"/>
 			<item value="setName"/>
-			<item value="name"/>
 		</list>
 		<list key="replacehistory">
 			<item value="!result.isBeforeFirst()"/>

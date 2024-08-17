@@ -33,39 +33,32 @@ public class ViewTransactionController extends HttpServlet {
         String fromDateStr = request.getParameter("fromDate");
         String toDateStr = request.getParameter("toDate");
 
-        System.out.println("Type: " + type);
-        System.out.println("From Date: " + fromDateStr);
-        System.out.println("To Date: " + toDateStr);
-
         List<Transaction> transactions = null;
 
-        try {
-            boolean isTypeProvided = type != null && !type.isEmpty() && !"All".equals(type);
-            boolean isFromDateProvided = fromDateStr != null && !fromDateStr.isEmpty();
-            boolean isToDateProvided = toDateStr != null && !toDateStr.isEmpty();
-
-            Date fromDate = isFromDateProvided ? Date.valueOf(fromDateStr) : null;
-            Date toDate = isToDateProvided ? Date.valueOf(toDateStr) : null;
-
-            // Check if both type and date range are provided
-            if (isTypeProvided && isFromDateProvided && isToDateProvided) {
-                transactions = databaseconnection2.getTransactionsByTypeAndDate(type, fromDate, toDate);
-            } 
-            // Check if only type is provided
-            else if (isTypeProvided) {
-                transactions = databaseconnection2.getTransactionDetailsByType(type);
-            } 
-            // Check if only date range is provided
-            else if (isFromDateProvided && isToDateProvided) {
-                transactions = databaseconnection2.getTransactionsByDateRange(fromDate, toDate);
-            } 
-            // If neither type nor date range is provided, fetch all transactions
-            else {
+        // If both type and dates are provided, filter by type and date range
+        if (type != null && !type.isEmpty() && fromDateStr != null && !fromDateStr.isEmpty() && toDateStr != null && !toDateStr.isEmpty()) {
+            Date fromDate = Date.valueOf(fromDateStr);
+            Date toDate = Date.valueOf(toDateStr);
+            transactions = databaseconnection2.getTransactionsByTypeAndDate(type, fromDate, toDate);
+        }
+        // If only the type is provided, filter by type
+        else if (type != null && !type.isEmpty()) {
+            if ("All".equals(type)) {
+                // If "All" is selected, retrieve all transactions
                 transactions = databaseconnection2.getTransactionDetails();
+            } else {
+                transactions = databaseconnection2.getTransactionDetailsByType(type);
             }
-
-        } catch (Exception e) {
-            e.printStackTrace(); // Log the exception for debugging
+        }
+        // If only dates are provided, filter by date range
+        else if (fromDateStr != null && !fromDateStr.isEmpty() && toDateStr != null && !toDateStr.isEmpty()) {
+            Date fromDate = Date.valueOf(fromDateStr);
+            Date toDate = Date.valueOf(toDateStr);
+            transactions = databaseconnection2.getTransactionsByDateRange(fromDate, toDate);
+        }
+        // If neither type nor dates are provided, retrieve all transactions
+        else {
+            transactions = databaseconnection2.getTransactionDetails();
         }
 
         request.setAttribute("transactions", transactions);

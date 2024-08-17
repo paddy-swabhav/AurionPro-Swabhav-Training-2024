@@ -8,7 +8,12 @@
     <title>Edit Profile</title>
 </head>
 <body>
-    <h1>Edit Profile</h1>
+    <h1>Edit Profile</h1><br>
+
+    <c:if test="${not empty message}">
+        <p style="color:red;">${message}</p>
+    </c:if>
+    <p>${errorMessage}</p>
 
     <form action="UpdateProfileController" method="post">
         <label>First Name:</label>
@@ -23,8 +28,13 @@
         <button type="submit">Update</button>
     </form>
 
-    <c:if test="${not empty message}">
-        <p>${message}</p>
-    </c:if>
+
+
+<br>
+<br>
+<form action="GoBackToCustomerHomeController" method="post">
+<button type="submit" name="back">GO BACK TO HOME</button>
+</form>
+    
 </body>
 </html>

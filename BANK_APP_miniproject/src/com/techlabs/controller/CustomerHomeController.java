@@ -60,7 +60,7 @@ public class CustomerHomeController extends HttpServlet {
 	        databaseconnection2.connectToDatabase();
 	        
 	        List<Long> accountnumbers = databaseconnection2.getAccountNumbers(id);
-			request.setAttribute("accountnumbers", accountnumbers);
+			request.setAttribute("accountnumber", accountnumbers);
 	        
 			
 			dispatcher = request.getRequestDispatcher("/NewTransaction.jsp");
@@ -74,6 +74,18 @@ public class CustomerHomeController extends HttpServlet {
 			return;
 		}
 		
+		if(operation.equals("logout"))
+		{
+            session=request.getSession();  
+            session.invalidate();  
+            
+            System.out.print("You are successfully logged out!");  
+
+			
+			dispatcher = request.getRequestDispatcher("/LoginPage.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
 		
 	}
 

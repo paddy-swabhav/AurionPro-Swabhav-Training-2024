@@ -53,7 +53,7 @@ public class AccountDatabaseConnection {
 		} 
 	}
 
-	public void generateAccountNumber(int id)
+	public void generateAccountNumber(int id, double balance)
 	{
 		connectToDatabase();
 		long accountNumber = randomNumberGenerator();
@@ -79,7 +79,7 @@ public class AccountDatabaseConnection {
 			
 			preparedStatement = connection.prepareStatement("INSERT INTO accounts (accountnumber, balance, customerid) VALUES(?,?,?)");
 			preparedStatement.setLong(1, accountNumber);
-			preparedStatement.setDouble(2, 1000.0);
+			preparedStatement.setDouble(2, balance);
 			preparedStatement.setInt(3, id);
 			
 			preparedStatement.execute();

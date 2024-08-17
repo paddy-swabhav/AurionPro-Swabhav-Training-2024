@@ -6,51 +6,61 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Transaction</title>
-    <style>
-        .hidden { display: none; }
-        .visible { display: block; }
-    </style>
 </head>
 <body>
     <h1>Transaction</h1>
 
-    <!-- Form to select operation -->
+
+	<form action="OperationSelectionController" method="post">
+        <input type="submit" name="operation" value="credit" /> 
+        <input type="submit" name="operation" value="debit" />
+        <input type="submit" name="operation" value="transfer"/> <br/>
+	</form>
+	
     <form action="TransactionController" method="post">
-        <label>Choose Operation:</label><br/>
-        <button type="submit" name="operation" value="credit">Credit</button>
-        <button type="submit" name="operation" value="debit">Debit</button>
-        <button type="submit" name="operation" value="transfer">Transfer</button>
+    
+    <input type="hidden" name="operation1" value="${operation}"/>
+    
+        <label>Choose Account Number:</label>
+        <select name="accountnumber">
+			<c:forEach var="accountnumber" items="${accountnumber}">
+			<option value="${accountnumber}">${accountnumber}</option>
+			</c:forEach>
+		</select><br/>
+
+		<c:choose>
+			<c:when test="${operation == 'transfer' or operation == 'credit' or operation == 'debit'}">
+		        <label>Amount:</label>
+		        <input type="number" name="amount" step="0.01" min="1" required /><br/>
+	        </c:when>
+        </c:choose>
+        
+        
+        <c:choose>
+            <c:when test="${operation == 'transfer'}">
+                <label>Receiver Account Number:</label>
+                <input type="number" name="receiveraccountnumber" required /><br/>
+            </c:when>
+        </c:choose>
+		
+		<c:choose>
+			<c:when test="${operation == 'transfer' or operation == 'credit' or operation == 'debit'}">
+        		<button type="submit">Submit</button>
+        	</c:when>
+        </c:choose>
+        
     </form>
 
-    <c:if test="${not empty operation}">
-        <form action="TransactionController" method="post">
-            <input type="hidden" name="operation" value="${operation}"/>
-            
-            <label>Choose Account Number:</label>
-            <select name="accountnumber">
-                <c:forEach var="accountnumber" items="${accountnumbers}">
-                    <option value="${accountnumber}" <c:if test="${accountnumber == selectedAccountNumber}">selected</c:if>>${accountnumber}</option>
-                </c:forEach>
-            </select><br/>
-
-            <label>Amount:</label>
-            <input type="number" name="amount" step="0.01" value="${amount}" required /><br/>
-
-            <c:choose>
-                <c:when test="${operation == 'transfer'}">
-                    <label>Receiver Account Number:</label>
-                    <input type="number" name="receiveraccountnumber" value="${receiveraccountnumber}" required /><br/>
-                </c:when>
-                <c:otherwise>
-                    <label>Receiver Account Number:</label>
-                    <input type="number" name="receiveraccountnumber" class="hidden" /><br/>
-                </c:otherwise>
-            </c:choose>
-
-            <button type="submit">Submit</button>
-        </form>
+    <c:if test="${not empty message}">
+        <p>${message}</p>
     </c:if>
-
-
+    
+    
+    
+    <br>
+<br>
+<form action="GoBackToCustomerHomeController" method="post">
+<button type="submit" name="back">GO BACK TO HOME</button>
+</form>
 </body>
 </html>

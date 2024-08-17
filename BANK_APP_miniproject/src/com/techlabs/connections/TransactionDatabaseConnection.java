@@ -1,6 +1,7 @@
 package com.techlabs.connections;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -62,13 +63,15 @@ public class TransactionDatabaseConnection {
 	
 		try {
 			
-			preparedStatement = connection.prepareStatement("SELECT * FROM transactions");
+			preparedStatement = connection.prepareStatement("SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
+															"FROM transactions t\r\n" + 
+															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid;");
 			
 			result = preparedStatement.executeQuery();
 		
 			while(result.next())
 			{
-				transactions.add((new Transaction(result.getInt(1),result.getInt(2),result.getLong(3),result.getLong(4),result.getDouble(5),result.getString(6))));
+				transactions.add((new Transaction(result.getInt(1),result.getString(2),result.getLong(3),result.getLong(4),result.getDouble(5),result.getString(6))));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -223,6 +226,213 @@ public class TransactionDatabaseConnection {
             e.printStackTrace();
         }
     }
+
+	public List<Transaction> getTransactionDetailsByType(String type) {
+		
+		databaseConnection.connectToDatabase();
+		ResultSet result = null;
+		List<Transaction> transactions = new ArrayList<Transaction>();
 	
+		try {
+			
+			preparedStatement = connection.prepareStatement("SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
+															"FROM transactions t\r\n" + 
+															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid\r\n" + 
+															"where tt.transactiontype=?;");
+			preparedStatement.setString(1, type);
+			
+			result = preparedStatement.executeQuery();
+		
+			while(result.next())
+			{
+				transactions.add((new Transaction(result.getInt(1),result.getString(2),result.getLong(3),result.getLong(4),result.getDouble(5),result.getString(6))));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return transactions;
+	}
+	
+	
+	
+	public List<Transaction> getTransactionsByDateRange(Date fromDate, Date toDate) {
+	    connectToDatabase();
+	    ResultSet result = null;
+	    List<Transaction> transactions = new ArrayList<>();
+
+	    try {
+	        preparedStatement = connection.prepareStatement(
+	            "SELECT t.transactionid, tt.transactiontype, t.senderaccountnumber, " +
+	            "t.receiveraccountnumber, t.amount, t.transactiondate " +
+	            "FROM transactions t " +
+	            "JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid " +
+	            "WHERE t.transactiondate BETWEEN ? AND ?;"
+	        );
+
+	        preparedStatement.setDate(1, fromDate);
+	        preparedStatement.setDate(2, toDate);
+	        
+	        result = preparedStatement.executeQuery();
+
+	        while (result.next()) {
+	            transactions.add(new Transaction(
+	                result.getInt(1),
+	                result.getString(2),
+	                result.getLong(3),
+	                result.getLong(4),
+	                result.getDouble(5),
+	                result.getString(6)
+	            ));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return transactions;
+	}
+
+	
+	 public List<Transaction> getTransactionsByTypeAndDate(String type, Date fromDate, Date toDate) {
+	        connectToDatabase();
+	        ResultSet result = null;
+	        List<Transaction> transactions = new ArrayList<>();
+
+	        try {
+	            preparedStatement = connection.prepareStatement(
+	                "SELECT t.transactionid, tt.transactiontype, t.senderaccountnumber, " +
+	                "t.receiveraccountnumber, t.amount, t.transactiondate " +
+	                "FROM transactions t " +
+	                "JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid " +
+	                "WHERE tt.transactiontype = ? AND t.transactiondate BETWEEN ? AND ?;"
+	            );
+
+	            preparedStatement.setString(1, type);
+	            preparedStatement.setDate(2, fromDate);
+	            preparedStatement.setDate(3, toDate);
+
+	            result = preparedStatement.executeQuery();
+
+	            while (result.next()) {
+	                transactions.add(new Transaction(
+	                    result.getInt(1),
+	                    result.getString(2),
+	                    result.getLong(3),
+	                    result.getLong(4),
+	                    result.getDouble(5),
+	                    result.getString(6)
+	                ));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return transactions;
+	    }
+	
+	
+	 public List<Passbook> getPassbookDetailsByType(long accountNumber, String type) {
+	        connectToDatabase();
+	        ResultSet result = null;
+	        List<Passbook> passbook = new ArrayList<>();
+	        
+	        try {
+	            preparedStatement = connection.prepareStatement(
+	                "SELECT T.transactionid, T.receiveraccountnumber, TY.transactiontype, T.amount, T.transactiondate, A.balance " +
+	                "FROM transactions T " +
+	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
+	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
+	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ?;"
+	            );
+	            preparedStatement.setLong(1, accountNumber);
+	            preparedStatement.setString(2, type);
+	            result = preparedStatement.executeQuery();
+	            
+	            while (result.next()) {
+	                passbook.add(new Passbook(
+	                    result.getInt(1),
+	                    result.getLong(2),
+	                    result.getString(3),
+	                    result.getDouble(4),
+	                    result.getString(5),
+	                    result.getDouble(6)
+	                ));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return passbook;
+	    }
+
+	    // Method to get passbook details filtered by date
+	    public List<Passbook> getPassbookDetailsByDate(long accountNumber, Date fromDate, Date toDate) {
+	        connectToDatabase();
+	        ResultSet result = null;
+	        List<Passbook> passbook = new ArrayList<>();
+	        
+	        try {
+	            preparedStatement = connection.prepareStatement(
+	                "SELECT T.transactionid, T.receiveraccountnumber, TY.transactiontype, T.amount, T.transactiondate, A.balance " +
+	                "FROM transactions T " +
+	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
+	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
+	                "WHERE T.senderaccountnumber = ? AND T.transactiondate BETWEEN ? AND ?;"
+	            );
+	            preparedStatement.setLong(1, accountNumber);
+	            preparedStatement.setDate(2, fromDate);
+	            preparedStatement.setDate(3, toDate);
+	            result = preparedStatement.executeQuery();
+	            
+	            while (result.next()) {
+	                passbook.add(new Passbook(
+	                    result.getInt(1),
+	                    result.getLong(2),
+	                    result.getString(3),
+	                    result.getDouble(4),
+	                    result.getString(5),
+	                    result.getDouble(6)
+	                ));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return passbook;
+	    }
+
+	    // Method to get passbook details filtered by type and date
+	    public List<Passbook> getPassbookDetailsByTypeAndDate(long accountNumber, String type, Date fromDate, Date toDate) {
+	        connectToDatabase();
+	        ResultSet result = null;
+	        List<Passbook> passbook = new ArrayList<>();
+	        
+	        try {
+	            preparedStatement = connection.prepareStatement(
+	                "SELECT T.transactionid, T.receiveraccountnumber, TY.transactiontype, T.amount, T.transactiondate, A.balance " +
+	                "FROM transactions T " +
+	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
+	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
+	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? AND T.transactiondate BETWEEN ? AND ?;"
+	            );
+	            preparedStatement.setLong(1, accountNumber);
+	            preparedStatement.setString(2, type);
+	            preparedStatement.setDate(3, fromDate);
+	            preparedStatement.setDate(4, toDate);
+	            result = preparedStatement.executeQuery();
+	            
+	            while (result.next()) {
+	                passbook.add(new Passbook(
+	                    result.getInt(1),
+	                    result.getLong(2),
+	                    result.getString(3),
+	                    result.getDouble(4),
+	                    result.getString(5),
+	                    result.getDouble(6)
+	                ));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return passbook;
+	    }
 	
 }

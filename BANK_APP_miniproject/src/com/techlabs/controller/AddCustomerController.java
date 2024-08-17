@@ -1,6 +1,7 @@
 package com.techlabs.controller;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,49 +9,57 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.techlabs.connections.CustomerDatabaseConnection;
 
-
 @WebServlet("/AddCustomerController")
 public class AddCustomerController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
-	CustomerDatabaseConnection database = new CustomerDatabaseConnection();
-	RequestDispatcher dispatcher;
+    private static final long serialVersionUID = 1L;
+
+    private static final String NAME_REGEX = "^[a-zA-Z]+$";
+    private static final String PASSWORD_REGEX = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
+
+    CustomerDatabaseConnection database = new CustomerDatabaseConnection();
+    RequestDispatcher dispatcher;
+
     public AddCustomerController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession(false);
-		
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		
-		database.connectToDatabase();
-		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && password.length()>8)
-		{
-			database.addCustomer(firstname, lastname, email, password);
-			dispatcher = request.getRequestDispatcher("/AddCustomer.jsp");
-//			session.setAttribute("addcustomerstatus", "Customer Added Successfuly");
-			request.setAttribute("addcustomerstatus", "Customer Added Successfuly");
-			dispatcher.forward(request, response);
-			
-		}
-		else 
-			System.out.println("WRONG INPUT");
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
+        StringBuilder validationErrors = new StringBuilder();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        // Validate firstname and lastname
+        if (firstname == null || !Pattern.matches(NAME_REGEX, firstname)) {
+            validationErrors.append("Firstname cannot contain numbers. ");
+        }
+        if (lastname == null || !Pattern.matches(NAME_REGEX, lastname)) {
+            validationErrors.append("Lastname cannot contain numbers. ");
+        }
 
+        // Validate password
+        if (password == null || !Pattern.matches(PASSWORD_REGEX, password)) {
+            validationErrors.append("Password must be at least 8 characters long and include at least one digit, one lowercase letter, and one uppercase letter.");
+        }
+
+        if (validationErrors.length() == 0) {
+            database.connectToDatabase();
+            database.addCustomer(firstname, lastname, email, password);
+            request.setAttribute("addcustomerstatus", "Customer Added Successfully");
+        } else {
+            request.setAttribute("addcustomerstatus", validationErrors.toString());
+        }
+
+        dispatcher = request.getRequestDispatcher("/AddCustomer.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 }

@@ -3,17 +3,17 @@ package com.techlabs.model;
 public class Transaction {
 	
 	private int transactionid;
-	private int transactiontypeid;
+	private String transactiontype;
 	private long senderaccountnumber;
 	private long receiveraccountnumber;
 	private double amount;
 	private String date;
 	
-	public Transaction(int transactionid, int transactiontypeid, long senderaccountnumber, long receiveraccountnumber,
+	public Transaction(int transactionid, String transactiontype, long senderaccountnumber, long receiveraccountnumber,
 			double amount, String date) {
 		super();
 		this.transactionid = transactionid;
-		this.transactiontypeid = transactiontypeid;
+		this.transactiontype = transactiontype;
 		this.senderaccountnumber = senderaccountnumber;
 		this.receiveraccountnumber = receiveraccountnumber;
 		this.amount = amount;
@@ -28,12 +28,12 @@ public class Transaction {
 		this.transactionid = transactionid;
 	}
 
-	public int getTransactiontypeid() {
-		return transactiontypeid;
+	public String getTransactiontype() {
+		return transactiontype;
 	}
 
-	public void setTransactiontypeid(int transactiontypeid) {
-		this.transactiontypeid = transactiontypeid;
+	public void setTransactiontype(String transactiontype) {
+		this.transactiontype = transactiontype;
 	}
 
 	public long getSenderaccountnumber() {

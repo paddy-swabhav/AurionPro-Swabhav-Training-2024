@@ -23,7 +23,7 @@
 <br>
 
 <span>Password: </span>
-<input type="password" name="password">
+<input type="password" name="password" >
 <br>
 
 <button type="submit"> ADD CUSTOMER</button>
@@ -31,8 +31,14 @@
 
 
 
-<p style="color:blue;">${addcustomerstatus}</p>
+<p style="color:red;">${addcustomerstatus}</p>
 
+</form>
+
+<br>
+<br>
+<form action="GoBackToAdminHomeController" method="post">
+<button type="submit" name="back">GO BACK TO HOME</button>
 </form>
 </body>
 </html>

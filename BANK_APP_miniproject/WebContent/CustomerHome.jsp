@@ -15,6 +15,7 @@
 <button type="submit" name="operation" value="passbook">Passbook</button>
 <button type="submit" name="operation" value="newtransaction">New Transaction</button>
 <button type="submit" name="operation" value="editprofile">Edit Profile</button>
+<button type="submit" name="operation" value="logout">Logout</button>
 </form>
 
 

@@ -12,7 +12,7 @@
 
 <form action="AddBankAccountController" method="get"> 
 <span>Enter Customer ID:</span>
-<input type="number" name="customerid"><br>
+<input type="number" name="customerid" min="1"><br>
 <button type="submit">SEARCH</button>
 </form>
 
@@ -27,7 +27,18 @@
 <br>
 <form action="AccountNumberGenerator" method="get">
 <input type="hidden" name="customerid" value="${customer.getCustomerid()}" />
+<label>Enter the account opening Balance: </label>
+<input type="number" name="balance"  min="1000" required><br>
 <button type="submit">Generate Account Number</button>
+</form>
+
+<p style="color:blue;">${message}</p>
+
+
+<br>
+<br>
+<form action="GoBackToAdminHomeController" method="post">
+<button type="submit" name="back">GO BACK TO HOME</button>
 </form>
 </body>
 </html>

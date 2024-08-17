@@ -31,7 +31,12 @@ public class AccountNumberGenerator extends HttpServlet {
 		database.connectToDatabase();
 		
         int id = Integer.parseInt(request.getParameter("customerid"));
-		database.generateAccountNumber(id);
+        double balance = Double.parseDouble(request.getParameter("balance"));
+		database.generateAccountNumber(id,balance);
+		
+		request.setAttribute("message", "Account Generated Successfully");
+		dispatcher = request.getRequestDispatcher("/AddBankAccount.jsp");
+		dispatcher.forward(request, response);
 	}
 
 
