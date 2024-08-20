@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.techlabs.connections.CustomerDatabaseConnection;
 import com.techlabs.model.Customer;
 
-@WebServlet("/UpdateProfileController")
+@WebServlet("/UpdateProfile")
 public class UpdateProfileController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

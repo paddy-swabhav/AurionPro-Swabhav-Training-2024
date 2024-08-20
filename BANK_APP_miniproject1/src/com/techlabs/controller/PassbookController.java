@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.techlabs.connections.TransactionDatabaseConnection;
 import com.techlabs.model.Passbook;
 
-@WebServlet("/PassbookController")
+@WebServlet("/Passbook")
 public class PassbookController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     

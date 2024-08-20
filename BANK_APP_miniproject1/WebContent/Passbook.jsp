@@ -161,7 +161,7 @@
 <body>
     <h1>PASSBOOK</h1>
 
-    <form action="PassbookController" method="get">
+    <form action="Passbook" method="get">
         <div class="form-group">
             <label for="accountnumber">SELECT ACCOUNT NUMBER:</label>
             <select id="accountnumber" name="accountnumber">
@@ -237,7 +237,7 @@
     </table>
 
     <br>
-    <form action="GoBackToCustomerHomeController" method="post">
+    <form action="GoBackToCustomerHome" method="post">
         <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
     </form>
 </body>

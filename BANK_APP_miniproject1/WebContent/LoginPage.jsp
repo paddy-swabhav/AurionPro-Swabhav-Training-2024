@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Sadda Bank Paaji - Login</title>
+    <title>Auro Bank - Login</title>
     <style>
         body {
             margin: 0;
@@ -158,12 +158,12 @@
 </head>
 <body>
     <div class="left-side">
-        <h1>Sadda Bank Paaji</h1>
+        <h1>AURO BANK</h1>
     </div>
     <div class="right-side">
         <div class="container">
             <h2>LOGIN PAGE</h2>
-            <form action="LoginController" method="Post">
+            <form action="Login" method="Post">
                 <div class="input-group">
                     <i class="fas fa-user"></i>
                     <input type="email" id="username" name="username" placeholder="Username" required>

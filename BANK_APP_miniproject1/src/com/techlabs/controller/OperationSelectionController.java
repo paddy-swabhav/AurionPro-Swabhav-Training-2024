@@ -16,7 +16,7 @@ import com.techlabs.connections.TransactionDatabaseConnection;
 /**
  * Servlet implementation class OperationSelectionController
  */
-@WebServlet("/OperationSelectionController")
+@WebServlet("/OperationSelection")
 public class OperationSelectionController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 	TransactionDatabaseConnection databaseconnection2;

@@ -15,7 +15,7 @@ import com.techlabs.connections.TransactionDatabaseConnection;
 import com.techlabs.model.Passbook;
 
 
-@WebServlet("/CustomerHomeController")
+@WebServlet("/CustomerHome")
 public class CustomerHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

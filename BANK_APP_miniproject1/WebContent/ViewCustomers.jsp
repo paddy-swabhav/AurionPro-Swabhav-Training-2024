@@ -150,7 +150,7 @@
         </table>
     </div>
 
-    <form action="GoBackToAdminHomeController" method="post">
+    <form action="GoBackToAdminHome" method="post">
         <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
     </form>
 </body>

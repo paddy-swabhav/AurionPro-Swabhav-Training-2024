@@ -129,7 +129,7 @@
     </c:if>
     <p class="status-message">${errorMessage}</p>
 
-    <form action="UpdateProfileController" method="post">
+    <form action="UpdateProfile" method="post">
         <div class="form-group">
             <label for="firstname">
                 <i class="fas fa-user"></i>
@@ -166,7 +166,7 @@
         <button type="submit">Update</button>
     </form>
 
-    <form action="GoBackToCustomerHomeController" method="post" class="back-button-container">
+    <form action="GoBackToCustomerHome" method="post" class="back-button-container">
         <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
     </form>
 </body>

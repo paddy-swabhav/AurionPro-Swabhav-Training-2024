@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.techlabs.connections.CustomerDatabaseConnection;
 
-@WebServlet("/AddCustomerController")
+@WebServlet("/AddCustomer")
 public class AddCustomerController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

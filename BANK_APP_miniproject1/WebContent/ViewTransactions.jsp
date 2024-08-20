@@ -137,7 +137,7 @@
     <div class="container">
         <h1>VIEW TRANSACTIONS</h1>
 
-        <form action="ViewTransactionController" method="post">
+        <form action="ViewTransaction" method="post">
             <label>Filter By</label>
             <select name="type" required>
                 <option value="All">All</option>
@@ -186,7 +186,7 @@
         </table>
     </div>
 
-    <form action="GoBackToAdminHomeController" method="post">
+    <form action="GoBackToAdminHome" method="post">
         <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
     </form>
 </body>

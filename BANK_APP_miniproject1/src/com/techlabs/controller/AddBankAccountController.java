@@ -15,7 +15,7 @@ import com.techlabs.model.Customer;
 
 
 
-@WebServlet("/AddBankAccountController")
+@WebServlet("/AddBankAccount")
 public class AddBankAccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	CustomerDatabaseConnection database = new CustomerDatabaseConnection();

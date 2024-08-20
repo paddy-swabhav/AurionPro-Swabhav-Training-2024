@@ -65,7 +65,7 @@ public class TransactionDatabaseConnection {
 			
 			preparedStatement = connection.prepareStatement("SELECT t.transactionid,tt.transactiontype, t.senderaccountnumber, t.receiveraccountnumber, t.amount,t.transactiondate\r\n" + 
 															"FROM transactions t\r\n" + 
-															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid ORDER BY t.transactiondate DESC;");
+															"JOIN transactiontypes tt ON t.transactiontypeid = tt.transactiontypeid ORDER BY t.transactionid DESC;");
 			
 			result = preparedStatement.executeQuery();
 		
@@ -93,8 +93,10 @@ public class TransactionDatabaseConnection {
 					"FROM transactions T\r\n" + 
 					"JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid\r\n" + 
 					"JOIN accounts A ON T.senderaccountnumber = A.accountnumber\r\n" + 
-					"Where T.senderaccountnumber =? ORDER BY T.transactionid DESC;");
+					"Where T.senderaccountnumber =? OR T.receiveraccountnumber =? ORDER BY T.transactionid DESC;");
 			preparedStatement.setLong(1, accountnumber);
+			preparedStatement.setLong(2, accountnumber);
+			
 			result = preparedStatement.executeQuery();
 			System.out.println("qury exe");
 			while(result.next())
@@ -342,10 +344,11 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? ORDER BY T.transactionid DESC;"
+	                "WHERE T.senderaccountnumber = ? OR T.receiveraccountnumber =? AND TY.transactiontype = ? ORDER BY T.transactionid DESC;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
-	            preparedStatement.setString(2, type);
+	            preparedStatement.setLong(2, accountNumber);
+	            preparedStatement.setString(3, type);
 	            result = preparedStatement.executeQuery();
 	            
 	            while (result.next()) {
@@ -376,11 +379,12 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;"
+	                "WHERE T.senderaccountnumber = ? OR T.receiveraccountnumber =? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
-	            preparedStatement.setDate(2, fromDate);
-	            preparedStatement.setDate(3, toDate);
+	            preparedStatement.setLong(2, accountNumber);
+	            preparedStatement.setDate(3, fromDate);
+	            preparedStatement.setDate(4, toDate);
 	            result = preparedStatement.executeQuery();
 	            
 	            while (result.next()) {
@@ -411,12 +415,13 @@ public class TransactionDatabaseConnection {
 	                "FROM transactions T " +
 	                "JOIN transactiontypes TY ON T.transactiontypeid = TY.transactiontypeid " +
 	                "JOIN accounts A ON T.senderaccountnumber = A.accountnumber " +
-	                "WHERE T.senderaccountnumber = ? AND TY.transactiontype = ? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;;"
+	                "WHERE T.senderaccountnumber = ? OR T.receiveraccountnumber =? AND TY.transactiontype = ? AND T.transactiondate BETWEEN ? AND ? ORDER BY T.transactionid DESC;;"
 	            );
 	            preparedStatement.setLong(1, accountNumber);
-	            preparedStatement.setString(2, type);
-	            preparedStatement.setDate(3, fromDate);
-	            preparedStatement.setDate(4, toDate);
+	            preparedStatement.setLong(2, accountNumber);
+	            preparedStatement.setString(3, type);
+	            preparedStatement.setDate(4, fromDate);
+	            preparedStatement.setDate(5, toDate);
 	            result = preparedStatement.executeQuery();
 	            
 	            while (result.next()) {

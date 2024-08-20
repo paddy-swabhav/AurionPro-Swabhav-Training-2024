@@ -112,13 +112,13 @@
     <div class="container">
         <h1>ADD CUSTOMER</h1>
 
-        <form action="AddCustomerController" method="post">
+        <form action="AddCustomer" method="post">
             <span>First Name: </span>
-            <input type="text" name="firstname" placeholder="Example: John">
+            <input type="text" name="firstname" placeholder="Example: John"/>
             <span>Last Name: </span>
-            <input type="text" name="lastname" placeholder="Example: Vinesmokes">
+            <input type="text" name="lastname" placeholder="Example: Vinesmokes"/>
             <span>Email: </span>
-            <input type="email" name="email" placeholder="Example: John@gmail.com">
+            <input type="email" name="email" placeholder="Example: John@gmail.com"/>
             <span>Password: </span>
             <input type="password" name="password">
             <button type="submit">ADD CUSTOMER</button>
@@ -128,7 +128,7 @@
     </div>
 
     <div class="back-button-container">
-        <form action="GoBackToAdminHomeController" method="post">
+        <form action="GoBackToAdminHome" method="post">
             <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
         </form>
     </div>

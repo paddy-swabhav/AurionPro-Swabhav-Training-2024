@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.techlabs.connections.TransactionDatabaseConnection;
 import com.techlabs.model.Transaction;
 
-@WebServlet("/ViewTransactionController")
+@WebServlet("/ViewTransaction")
 public class ViewTransactionController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

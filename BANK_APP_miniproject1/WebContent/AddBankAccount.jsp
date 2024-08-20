@@ -131,7 +131,7 @@
 <body>
     <div class="container">
         <h1>ADD BANK ACCOUNT</h1>
-        <form action="AddBankAccountController" method="get"> 
+        <form action="AddBankAccount" method="get"> 
             <span class="label-custom">Enter Customer ID:</span>
             <input type="number" name="customerid" min="1"><br>
             <button type="submit">SEARCH</button>
@@ -154,7 +154,7 @@
     </div>
 
     <div class="back-button-container">
-        <form action="GoBackToAdminHomeController" method="post">
+        <form action="GoBackToAdminHome" method="post">
             <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
         </form>
     </div>

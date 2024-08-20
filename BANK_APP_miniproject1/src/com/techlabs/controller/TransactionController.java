@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.techlabs.connections.TransactionDatabaseConnection;
 
-@WebServlet("/TransactionController")
+@WebServlet("/Transaction")
 public class TransactionController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

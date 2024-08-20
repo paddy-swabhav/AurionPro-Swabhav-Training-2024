@@ -94,7 +94,7 @@
     <h1>Customer Home</h1>
     <% String name = (String) session.getAttribute("name"); %>
     <h3>Welcome <%= name %></h3>
-    <form action="CustomerHomeController" method="get">
+    <form action="CustomerHome" method="get">
         <button type="submit" name="operation" value="passbook">
             <i class="fas fa-book"></i> Passbook
         </button>

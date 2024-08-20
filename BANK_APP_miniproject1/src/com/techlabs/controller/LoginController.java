@@ -15,7 +15,7 @@ import com.techlabs.connections.CustomerDatabaseConnection;
 import com.techlabs.model.Admin;
 import com.techlabs.model.Customer;
 
-@WebServlet("/LoginController")
+@WebServlet("/Login")
 public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

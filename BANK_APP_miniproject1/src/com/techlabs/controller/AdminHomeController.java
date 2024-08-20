@@ -17,7 +17,7 @@ import com.techlabs.model.Customer1;
 import com.techlabs.model.Transaction;
 
 
-@WebServlet("/AdminHomeController")
+@WebServlet("/AdminHome")
 public class AdminHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

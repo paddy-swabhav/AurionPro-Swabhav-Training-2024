@@ -147,7 +147,7 @@
     <div class="container">
         <h1>Transaction</h1>
 
-        <form action="OperationSelectionController" method="post">
+        <form action="OperationSelection" method="post">
             <div class="button-container">
                 <input type="submit" name="operation" value="credit" /> 
                 <input type="submit" name="operation" value="debit" />
@@ -155,7 +155,7 @@
             </div>
         </form>
         
-        <form action="TransactionController" method="post">
+        <form action="Transaction" method="post">
             <input type="hidden" name="operation1" value="${operation}"/>
             
             <label>Choose Account Number:</label>
@@ -192,7 +192,7 @@
     </div>
 
     <div class="back-button-container">
-        <form action="GoBackToCustomerHomeController" method="post">
+        <form action="GoBackToCustomerHome" method="post">
             <button type="submit" name="back" class="back-button">GO BACK TO HOME</button>
         </form>
     </div>
